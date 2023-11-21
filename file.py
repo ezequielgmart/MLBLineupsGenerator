@@ -1,5 +1,5 @@
 # import xlrd
-from settings import * 
+from config import * 
 import pandas as pd
 
 # Clase encargada de manejar el contenido proveniente de un archivo XLSX

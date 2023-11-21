@@ -2,9 +2,9 @@ from model import *
 from players import *
 
 class players_handler():
-    def __init__(self, source_type):
+    def __init__(self, source_type, file_path, file_sheet):
         self.source_type = source_type
-        self.model = Model(self.source_type, FILE_PATH, FILE_SHEET)
+        self.model = Model(self.source_type, file_path, file_sheet)
         self.data = self.model.data_set
         self.pd = pd
     
@@ -141,11 +141,3 @@ class players_handler():
         
         return attrs_calculated
 
-players = players_handler('excel')
-
-# order = "contact_RHP"
-order = "contact_LHP"
-# order = "vision"
-
-players.get_players_with_abilities_and_types()
-# players.get_players(order, False)

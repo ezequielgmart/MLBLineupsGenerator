@@ -1,4 +1,4 @@
-from settings import * 
+from config import * 
 
 class Player():
     
@@ -16,11 +16,9 @@ class Player():
             "Fundamentals": fundamental,
             "Offroad": offroad
         }
-        
             
         return max(arquetypes_score, key=arquetypes_score.get)   
     
-
     # This return a score by attribute given. attr could be the vision, contact, wathever, and the score_by_attr is the score that attribute represents in order to get the arquetype final puntuation  
     def get_score_by_attr(self,attr,score_by_attr):
         return ((attr / 100) * score_by_attr)
@@ -108,39 +106,5 @@ class Player():
             print("Type score attribute missing... ")
         
         return round(sum(result),1)
-    
-    # def get_powerhouse_score(self, power, contact, clutch, vision):
-    #         pow = self.get_score_by_attr(power,POWERHOUSE_POWER_REQUIRED)
-    #         clt = self.get_score_by_attr(clutch,POWERHOUSE_CLT_REQUIRED)
-    #         con = self.get_score_by_attr(contact,POWERHOUSE__CONTACT_REQUIRED)
-    #         vis = self.get_score_by_attr(vision,POWERHOUSE_VISION_REQUIRED)
-            
-    #         score = pow + clt + con + vis
-            
-    #         return round(score,1)  
-            
-                
-    
-    # def get_fundamental_score_overall(self, vision, clutch, discipline, contact):
-    #         vis = self.get_score_by_attr(vision,FUNDAMENTAL_VISION_REQUIRED)
-    #         clt = self.get_score_by_attr(clutch,FUNDAMENTAL_CLT_REQUIRED)
-    #         dis = self.get_score_by_attr(discipline,FUNDAMENTAL_DISCIPLINE_REQUIRED)
-    #         con = self.get_score_by_attr(contact,FUNDAMENTAL_CONTACT_REQUIRED)
-            
-    #         score = vis + clt + dis + con
-            
-    #         return round(score,1)
-            
-                
-        
-        
-    # def get_offroad_score_overall(self, contact_ability, power_ability, bs_ability, clutch):
-    #     con = self.get_score_by_attr(contact_ability,OFFROAD_CONTACT_REQUIRED)
-    #     pow = self.get_score_by_attr(power_ability,OFFROAD_POWER_REQUIRED)
-    #     spd = self.get_score_by_attr(bs_ability,OFFROAD_SPEED_REQUIRED)
-    #     clt = self.get_score_by_attr(clutch,OFFROAD_CLT_REQUIRED)
-        
-    #     score = pow + clt + spd + con
-        
-    #     return round(score,1) 
+ 
         

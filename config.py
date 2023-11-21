@@ -1,4 +1,4 @@
-# - - - -- - Abilities score required - -- - 
+
 
 # FILE
 FILE_PATH = "stats.xlsx"
@@ -6,6 +6,7 @@ FILE_SHEET = "data_lineup"
 # FILE_SHEET = "as"
 FILE_ENGINE = "openpyxl"
 
+TEAMS = ["Los Angeles Angels", "A's Oakland"]
 # Contact_ability
 CONTACT_ABILITY_AVG_SCORE = 60
 CONTACT_ABILITY_CLT_SCORE = 5

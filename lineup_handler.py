@@ -4,7 +4,7 @@ class lineup_handler():
     def __init__(self):
         self.spots_available = 3
         
-    def get_lineup(self, data, catchers_availables, pitcher_hand):
+    def get_lineup(self, data, catchers_availables, excluded_player):
         picked_players = []
         
         best_hitter = 1
@@ -12,6 +12,14 @@ class lineup_handler():
         leadoff_spots = 2
         fundamentals_spots = 2
         
+        if excluded_player != 0:
+            
+            for item in data:
+                if item["Player"] == excluded_player or item["order"] == excluded_player:
+                    data.remove(item)
+                else:
+                    pass
+
         while best_hitter > 0:
             
             attr='offroad'
@@ -69,6 +77,14 @@ class lineup_handler():
         if are_catchers:
             # Si ya tiene un catcher, el 9no bate sera el 3er mejor leadoff
             attr='leadoff'
+            
+            # if excluded_player != 0:
+            
+            #     for item in data:
+            #         if item["Player"] == excluded_player or item["order"] == excluded_player:
+            #             data.remove(item)
+            #         else:
+            #             pass
             
             for player in data:
                 max_powerhouse = max(data, key=lambda x: x[attr])
