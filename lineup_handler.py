@@ -4,7 +4,7 @@ class lineup_handler():
     def __init__(self):
         self.spots_available = 3
         
-    def get_lineup(self, data, catchers_availables, excluded_player):
+    def get_lineup(self, data, catchers_availables, excluded_player_list):
         picked_players = []
         
         best_hitter = 1
@@ -12,13 +12,14 @@ class lineup_handler():
         leadoff_spots = 2
         fundamentals_spots = 2
         
-        if excluded_player != 0:
+        if excluded_player_list != 0:
             
             for item in data:
-                if item["Player"] == excluded_player or item["order"] == excluded_player:
-                    data.remove(item)
-                else:
-                    pass
+                for player_excluded in excluded_player_list:
+                    if item["Player"] == player_excluded or item["order"] == player_excluded:
+                        data.remove(item)
+                    else:
+                        pass
 
         while best_hitter > 0:
             

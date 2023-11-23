@@ -38,13 +38,17 @@ class Main():
                 excluded_player = 0
                 lineup = lineup_generator.get_lineup(data, catchers_availables, 0)
             else:
-                excluded_player = is_any_player_excluded
-                lineup = lineup_generator.get_lineup(data, catchers_availables, excluded_player)
+                excluded_player_list = self.get_excluded_player_list(is_any_player_excluded)
+                lineup = lineup_generator.get_lineup(data, catchers_availables, excluded_player_list)
                 
             self.render_players_in_lineup(pitcher_hand, lineup)
             
             input("Generate lineup again...")  
         
+    def get_excluded_player_list(self, players):
+        # split the order / players by ','
+        excluded_player_list = [str(player) for player in players.split(',')]
+        return excluded_player_list
         
     def view_all_players(self, source_type, file_path, sheet, team, mode):
         while True:
@@ -173,7 +177,7 @@ class Main():
         
     # RENDER METHODS
     def render_header_information_banner(self, source_type, file_path, sheet, team, mode):
-        print(f"Reading information from Source: {source_type} | Path:{file_path}  | Page:{sheet} | Team: {team} | Mode:{mode}")
+        print(f"Reading information from Source: {source_type} | Path:{file_path}  | Page:{sheet} | Team: {sheet} | Mode:{mode}")
         print(f"**********************************************************************************************")
             
     def render_players_in_lineup(self, pitcher_hand = 0, lineup = 0):
