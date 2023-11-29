@@ -12,6 +12,12 @@ class lineup_handler():
         leadoff_spots = 2
         fundamentals_spots = 2
         
+        for player in data:
+            if player["is_mlb"] == "No":
+                data.remove(player)
+            else:
+                pass
+        
         if excluded_player_list != 0:
             
             for item in data:
@@ -104,6 +110,17 @@ class lineup_handler():
                 break
          
         # The order on the lineup 
+        # 1. 1st leadoff
+        # 2. 2nd best leadoff
+        # 3. Best hitter
+        # 4. 1st Best powerhouse
+        # 5. 2nd best powerhouse
+        # 6. 1st Best fundamentals
+        # 7. 2nd Best fundamentals
+        # 8. 3nd best powerhouse
+        # 7. 3rd leadoff / catcher
+        
+        
         lineup = [
             picked_players[4],
             picked_players[5],
@@ -111,8 +128,8 @@ class lineup_handler():
             picked_players[1],
             picked_players[2],
             picked_players[6],
-            picked_players[7],
             picked_players[3],
+            picked_players[7],
             picked_players[8]
         ]
         

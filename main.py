@@ -90,6 +90,7 @@ class Main():
                     "offroad_RHP":row.offroad_score_rhp,
                     "offroad_LHP":row.offroad_score_lhp,
                     "Pos":row.pos,
+                    "is_mlb":row.mlb,
                     "bats":row.bats
             }
             
@@ -127,6 +128,7 @@ class Main():
                         "fundamentals":row.fundamentals_score_rhp,
                         "offroad":row.offroad_score_rhp,
                         "Pos":row.pos,
+                        "is_mlb":row.mlb,
                         "bats":row.bats
                     }
                     
@@ -154,6 +156,7 @@ class Main():
                         "offroad":row.offroad_score_lhp,
                         "better_type": batter_type,
                         "Pos":row.pos,
+                        "is_mlb":row.mlb,
                         "bats":row.bats
                     }
                     
@@ -177,7 +180,7 @@ class Main():
         
     # RENDER METHODS
     def render_header_information_banner(self, source_type, file_path, sheet, team, mode):
-        print(f"Reading information from Source: {source_type} | Path:{file_path}  | Page:{sheet} | Team: {sheet} | Mode:{mode}")
+        print(f"Reading information from Source: {source_type} | Path:{file_path}  | Team: {sheet} | Mode:{mode}")
         print(f"**********************************************************************************************")
             
     def render_players_in_lineup(self, pitcher_hand = 0, lineup = 0):

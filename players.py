@@ -60,14 +60,16 @@ class Player():
         return round(score,1)   
    
    # Los score
-    def get_leadoff_score(self, contact, batting_ability, bs_ability):
+    def get_leadoff_score(self, contact, bs_ability, contact_ability):
         # cambiare que sea solo basando en el contacto porque un leadoff no necesita tener buenos fundamentos sino buena capacidad de contacto
         
             contact_score = self.get_score_by_attr(contact,CONTACT_HITTER_C_AB_REQUIRED)
+            # contact_score = self.get_score_by_attr(contact,CONTACT_HITTER_C_AB_REQUIRED)
             bs_ability_score = self.get_score_by_attr(bs_ability,CONTACT_HITTER_BS_AB_REQUIRED)
-            b_ability_score = self.get_score_by_attr(batting_ability,CONTACT_HITTER_BAT_AB_REQUIRED)
+            # b_ability_score = self.get_score_by_attr(batting_ability,CONTACT_HITTER_BAT_AB_REQUIRED)
+            contact_ability = self.get_score_by_attr(contact_ability,CONTACT_HITTER_BAT_AB_REQUIRED)
             
-            score = contact_score + bs_ability_score + b_ability_score
+            score = contact_score + bs_ability_score + contact_ability
             
             return round(score,1)
     

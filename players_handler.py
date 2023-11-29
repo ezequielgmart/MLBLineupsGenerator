@@ -54,6 +54,7 @@ class players_handler():
                 "clt":clutch,
                 "spd":speed,
                 "stl":steal,
+                "mlb":row.MLB,
                 "pos":str(row.pos)
             }
             
@@ -70,8 +71,6 @@ class players_handler():
         # averages 
         avg_contact = player_formula.get_LHP_RHP_avg(contact_RHP, contact_LHP)
             
-        avg_power = player_formula.get_LHP_RHP_avg(power_RHP, power_LHP)
-        
         # Abilities 
         
         # contact
@@ -80,7 +79,6 @@ class players_handler():
         contact_ability_lhp = player_formula.get_contact_ability(contact_LHP,vision,disc,clutch)
         
         avg_cont_ability = player_formula.get_LHP_RHP_avg(contact_ability_rhp,contact_ability_lhp)
-        
         
         # power 
         power_ability_rhp = player_formula.get_power_ability(
@@ -100,9 +98,9 @@ class players_handler():
         bs_ability = player_formula.get_bs_ability(speed,steal)
         
         # leadoff
-        leadoff_score_rhp = player_formula.get_leadoff_score(contact_RHP, bating_ability,bs_ability)
+        leadoff_score_rhp = player_formula.get_leadoff_score(contact_RHP, bs_ability, contact_ability_rhp)
         
-        leadoff_score_lhp = player_formula.get_leadoff_score(contact_LHP,bating_ability,bs_ability)
+        leadoff_score_lhp = player_formula.get_leadoff_score(contact_LHP, bs_ability, contact_ability_lhp)
         
         # power_house
         power_score_rhp = player_formula.get_type_score([1,power_RHP, clutch, contact_RHP,vision])
